@@ -29,11 +29,20 @@ rutInput.addEventListener('input', () => {
   rutInput.value = formatRut(rutInput.value);
 });
 
-phoneInput.addEventListener('input', () => {
-  phoneInput.value = phoneInput.value.replace(/[^0-9+ ()-]/g, '');
-  if (phoneInput.value && !phoneInput.value.startsWith('+')) {
-    phoneInput.value = `+${phoneInput.value.replace(/\+/g, '')}`;
+const formatPhone = (value) => {
+  let digits = value.replace(/\D/g, '');
+  if (digits.length <= 2 && '56'.startsWith(digits)) {
+    return '+56';
   }
+  if (digits.startsWith('56')) {
+    digits = digits.slice(2);
+  }
+
+  return `+56${digits.slice(0, 9)}`;
+};
+
+phoneInput.addEventListener('input', () => {
+  phoneInput.value = formatPhone(phoneInput.value);
 });
 
 emailInput.addEventListener('input', () => {
