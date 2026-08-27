@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Formulario de ingreso para ficha médica">
+  <title>Ficha médica | Nuevo ingreso</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="page-shell">
+    <header class="topbar">
+      <a class="brand" href="./" aria-label="Inicio de Ficha médica">
+        <span class="brand-mark" aria-hidden="true">+</span>
+        <span>Ficha médica</span>
+      </a>
+      <span class="secure-label"><span class="secure-dot" aria-hidden="true"></span> Registro seguro</span>
+    </header>
+
+    <section class="intro" aria-labelledby="page-title">
+      <div class="eyebrow">Ingreso de paciente <span>01 / 01</span></div>
+      <h1 id="page-title">Abrir una nueva ficha</h1>
+      <p>Completa los datos del paciente para crear su registro clínico.</p>
+    </section>
+
+    <form id="medical-form" class="medical-form" novalidate>
+      <section class="form-section" aria-labelledby="personal-heading">
+        <div class="section-heading">
+          <span class="section-number">01</span>
+          <div>
+            <h2 id="personal-heading">Identificación personal</h2>
+            <p>Información principal del paciente</p>
+          </div>
+        </div>
+        <div class="field-grid">
+          <label class="field field-span-2">
+            <span>RUT <b aria-hidden="true">*</b></span>
+            <input id="rut" name="rut" type="text" placeholder="12.345.678-9" autocomplete="off" required>
+            <small class="field-hint">Ejemplo: 12.345.678-9</small>
+          </label>
+          <label class="field">
+            <span>Nombres <b aria-hidden="true">*</b></span>
+            <input id="nombres" name="nombres" type="text" placeholder="Juan Doroteo" autocomplete="given-name" required>
+          </label>
+          <label class="field">
+            <span>Apellidos <b aria-hidden="true">*</b></span>
+            <input id="apellidos" name="apellidos" type="text" placeholder="Peréz Plumero" autocomplete="family-name" required>
+          </label>
+          <label class="field">
+            <span>Fecha de nacimiento <b aria-hidden="true">*</b></span>
+            <input id="fecha-nacimiento" name="fechaNacimiento" type="date" required>
+          </label>
+          <label class="field">
+            <span>Estado civil</span>
+            <select id="estado-civil" name="estadoCivil">
+              <option value="" selected>Seleccionar estado</option>
+              <option>Soltero/a</option>
+              <option>Casado/a</option>
+              <option>Conviviente</option>
+              <option>Divorciado/a</option>
+              <option>Viudo/a</option>
+              <option>Prefiero no decirlo</option>
+            </select>
+          </label>
+        </div>
+      </section>
+
+      <section class="form-section" aria-labelledby="contact-heading">
+        <div class="section-heading">
+          <span class="section-number">02</span>
+          <div>
+            <h2 id="contact-heading">Datos de contacto</h2>
+            <p>¿Dónde podemos encontrarle?</p>
+          </div>
+        </div>
+        <div class="field-grid">
+          <label class="field field-span-2">
+            <span>Dirección <b aria-hidden="true">*</b></span>
+            <input id="direccion" name="direccion" type="text" placeholder="Av. Providencia 1234, depto. 56" autocomplete="street-address" required>
+          </label>
+          <label class="field">
+            <span>Ciudad <b aria-hidden="true">*</b></span>
+            <input id="ciudad" name="ciudad" type="text" placeholder="Santiago" autocomplete="address-level2" required>
+          </label>
+          <label class="field">
+            <span>Teléfono <b aria-hidden="true">*</b></span>
+            <input id="telefono" name="telefono" type="tel" placeholder="+56 9 1234 5678" autocomplete="tel" required>
+          </label>
+          <label class="field field-span-2">
+            <span>Email <b aria-hidden="true">*</b></span>
+            <input id="email" name="email" type="email" placeholder="nombre@correo.cl" autocomplete="email" required>
+          </label>
+        </div>
+      </section>
+
+      <section class="form-section" aria-labelledby="notes-heading">
+        <div class="section-heading">
+          <span class="section-number">03</span>
+          <div>
+            <h2 id="notes-heading">Información adicional</h2>
+            <p>Antecedentes relevantes para la atención</p>
+          </div>
+        </div>
+        <label class="field">
+          <span>Comentarios</span>
+          <textarea id="comentarios" name="comentarios" rows="5" maxlength="500" placeholder="Escribe aquí cualquier información que debamos considerar..."></textarea>
+          <small class="field-hint character-count"><span id="character-count">0</span> / 500</small>
+        </label>
+      </section>
+
+      <div class="form-footer">
+        <p class="required-note"><b aria-hidden="true">*</b> Campos obligatorios</p>
+        <div class="form-actions">
+          <button class="clear-button" type="reset">Limpiar ficha</button>
+          <button class="submit-button" type="submit">Guardar ficha <span aria-hidden="true">→</span></button>
+        </div>
+      </div>
+      <div id="form-status" class="form-status" role="status" aria-live="polite"></div>
+    </form>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
