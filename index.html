@@ -42,7 +42,7 @@
         <div class="field-grid">
           <label class="field field-span-2">
             <span>RUT <b aria-hidden="true">*</b></span>
-            <input id="rut" name="rut" type="text" placeholder="12.345.678-9" autocomplete="off" required>
+            <input id="rut" name="rut" type="text" placeholder="12.345.678-9" autocomplete="off" inputmode="numeric" maxlength="12" pattern="[0-9]{1,2}\.[0-9]{3}\.[0-9]{3}-[0-9kK]" required>
             <small class="field-hint">Ejemplo: 12.345.678-9</small>
           </label>
           <label class="field">
@@ -91,11 +91,11 @@
           </label>
           <label class="field">
             <span>Teléfono <b aria-hidden="true">*</b></span>
-            <input id="telefono" name="telefono" type="tel" placeholder="+56 9 1234 5678" autocomplete="tel" required>
+            <input id="telefono" name="telefono" type="tel" placeholder="+56 9 1234 5678" autocomplete="tel" inputmode="tel" pattern="\+[0-9][0-9 ()-]{6,}" required>
           </label>
           <label class="field field-span-2">
             <span>Email <b aria-hidden="true">*</b></span>
-            <input id="email" name="email" type="email" placeholder="nombre@correo.cl" autocomplete="email" required>
+            <input id="email" name="email" type="email" placeholder="nombre@correo.cl" autocomplete="email" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" required>
           </label>
         </div>
       </section>

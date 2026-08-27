@@ -10,7 +10,35 @@ const searchView = document.querySelector('#search-view');
 const openSearchButton = document.querySelector('#open-search');
 const closeCreatorButton = document.querySelector('#close-creator');
 const closeSearchButton = document.querySelector('#close-search');
+const rutInput = document.querySelector('#rut');
+const phoneInput = document.querySelector('#telefono');
+const emailInput = document.querySelector('#email');
 const storageKey = 'fichas-medicas';
+
+const formatRut = (value) => {
+  const cleanValue = value.replace(/[^0-9kK]/g, '').toUpperCase();
+  const verifier = cleanValue.slice(-1);
+  const digits = cleanValue.slice(0, -1).slice(0, 8);
+
+  if (!digits) return verifier === 'K' ? '' : verifier;
+  const groupedDigits = digits.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  return `${groupedDigits}-${verifier}`;
+};
+
+rutInput.addEventListener('input', () => {
+  rutInput.value = formatRut(rutInput.value);
+});
+
+phoneInput.addEventListener('input', () => {
+  phoneInput.value = phoneInput.value.replace(/[^0-9+ ()-]/g, '');
+  if (phoneInput.value && !phoneInput.value.startsWith('+')) {
+    phoneInput.value = `+${phoneInput.value.replace(/\+/g, '')}`;
+  }
+});
+
+emailInput.addEventListener('input', () => {
+  emailInput.value = emailInput.value.replace(/\s/g, '');
+});
 
 const showView = (view) => {
   const isSearchView = view === 'search';
