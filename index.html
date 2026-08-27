@@ -17,16 +17,20 @@
         <span class="brand-mark" aria-hidden="true">+</span>
         <span>Ficha médica</span>
       </a>
-      <span class="secure-label"><span class="secure-dot" aria-hidden="true"></span> Registro seguro</span>
+      <div class="topbar-actions">
+        <button id="open-search" class="nav-button" type="button">Buscar fichas</button>
+        <span class="secure-label"><span class="secure-dot" aria-hidden="true"></span> Registro seguro</span>
+      </div>
     </header>
 
-    <section class="intro" aria-labelledby="page-title">
-      <div class="eyebrow">Ingreso de paciente <span>01 / 01</span></div>
-      <h1 id="page-title">Abrir una nueva ficha</h1>
-      <p>Completa los datos del paciente para crear su registro clínico.</p>
-    </section>
+    <div id="creator-view">
+      <section class="intro" aria-labelledby="page-title">
+        <div class="eyebrow">Ingreso de paciente <span>01 / 01</span></div>
+        <h1 id="page-title">Abrir una nueva ficha</h1>
+        <p>Completa los datos del paciente para crear su registro clínico.</p>
+      </section>
 
-    <form id="medical-form" class="medical-form" novalidate>
+      <form id="medical-form" class="medical-form" novalidate>
       <section class="form-section" aria-labelledby="personal-heading">
         <div class="section-heading">
           <span class="section-number">01</span>
@@ -115,11 +119,32 @@
         <p class="required-note"><b aria-hidden="true">*</b> Campos obligatorios</p>
         <div class="form-actions">
           <button class="clear-button" type="reset">Limpiar ficha</button>
+          <button id="close-creator" class="clear-button" type="button">Ir al buscador</button>
           <button class="submit-button" type="submit">Guardar ficha <span aria-hidden="true">→</span></button>
         </div>
       </div>
       <div id="form-status" class="form-status" role="status" aria-live="polite"></div>
-    </form>
+      </form>
+    </div>
+
+    <section id="search-view" class="search-panel" aria-labelledby="search-heading" hidden>
+      <div class="section-heading">
+        <span class="section-number">01</span>
+        <div>
+          <h2 id="search-heading">Buscar ficha existente</h2>
+          <p>Encuentra pacientes registrados por apellido</p>
+        </div>
+      </div>
+      <form id="search-form" class="search-form">
+        <label class="field" for="search-apellido">
+          <span>Apellido</span>
+          <input id="search-apellido" name="apellido" type="search" placeholder="Ej: Pérez" autocomplete="off">
+        </label>
+        <button class="submit-button search-button" type="submit">Buscar <span aria-hidden="true">⌕</span></button>
+      </form>
+      <div id="search-results" class="search-results" aria-live="polite"></div>
+      <button id="close-search" class="clear-button back-button" type="button">Nueva ficha</button>
+    </section>
   </main>
   <script src="script.js"></script>
 </body>

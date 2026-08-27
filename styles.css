@@ -30,6 +30,7 @@ body::before {
 
 .page-shell { width: min(100% - 48px, 1060px); margin: 0 auto; padding: 30px 0 64px; }
 .topbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 88px; }
+.topbar-actions { display: flex; gap: 22px; align-items: center; }
 .brand { display: inline-flex; gap: 11px; align-items: center; color: var(--ink); font-family: "Space Grotesk", sans-serif; font-size: 17px; font-weight: 700; text-decoration: none; }
 .brand-mark { display: grid; width: 28px; height: 28px; place-items: center; border-radius: 9px; color: white; background: var(--teal); font-size: 20px; line-height: 1; }
 .secure-label { display: flex; gap: 8px; align-items: center; color: var(--muted); font-size: 12px; font-weight: 600; letter-spacing: .03em; text-transform: uppercase; }
@@ -40,6 +41,18 @@ body::before {
 h1, h2 { margin: 0; font-family: "Space Grotesk", sans-serif; }
 h1 { max-width: 600px; font-size: clamp(42px, 6vw, 70px); letter-spacing: -.045em; line-height: .98; }
 .intro p { max-width: 470px; margin: 22px 0 0; color: var(--muted); font-size: 17px; line-height: 1.6; }
+.nav-button { border: 0; padding: 8px 0; color: var(--teal-dark); background: transparent; cursor: pointer; font: inherit; font-size: 13px; font-weight: 700; }
+.nav-button:hover { color: var(--coral); }
+.search-panel { margin-bottom: 24px; border: 1px solid rgba(203, 220, 213, .95); border-radius: 18px; padding: 30px 46px; background: rgba(255, 255, 255, .72); box-shadow: var(--shadow); backdrop-filter: blur(8px); }
+.search-panel .section-heading { margin-bottom: 22px; }
+.search-form { display: flex; gap: 16px; align-items: end; }
+.search-form .field { flex: 1; }
+.search-button { height: 50px; white-space: nowrap; }
+.search-results { display: grid; gap: 8px; margin-top: 20px; }
+.back-button { margin-top: 25px; }
+.result-item { display: flex; justify-content: space-between; gap: 15px; border-top: 1px solid var(--line); padding: 13px 0 3px; font-size: 14px; }
+.result-item span, .empty-results { color: var(--muted); font-size: 13px; }
+.empty-results { margin: 0; }
 .medical-form { overflow: hidden; border: 1px solid rgba(203, 220, 213, .95); border-radius: 18px; background: rgba(255, 255, 255, .72); box-shadow: var(--shadow); backdrop-filter: blur(8px); }
 .form-section { padding: 38px 46px 44px; border-bottom: 1px solid var(--line); }
 .section-heading { display: flex; gap: 18px; align-items: flex-start; margin-bottom: 30px; }
@@ -78,7 +91,13 @@ h2 { font-size: 22px; letter-spacing: -.02em; }
   .page-shell { width: min(100% - 30px, 560px); padding-top: 22px; }
   .topbar { margin-bottom: 62px; }
   .secure-label { font-size: 10px; }
+  .topbar-actions { gap: 12px; }
+  .nav-button { font-size: 11px; }
   .intro p { font-size: 15px; }
+  .search-panel { border-radius: 14px; padding: 25px 21px; }
+  .search-form { align-items: stretch; flex-direction: column; }
+  .search-button { justify-content: center; }
+  .result-item { align-items: flex-start; flex-direction: column; gap: 5px; }
   .medical-form { border-radius: 14px; }
   .form-section { padding: 29px 21px 34px; }
   .field-grid { grid-template-columns: 1fr; gap: 21px; }
